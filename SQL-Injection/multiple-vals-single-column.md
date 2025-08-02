@@ -5,7 +5,7 @@
 ---
 
 ### Objective
-The goal of this lab is to retrieve all the usernames and passwords into a single column and then login as the admin
+The goal of this lab is to make use of the SQL injection vulnerability present in the Produt Category filter of the website, and use this to inject a query to retrieve all the usernames and passwords into a single column and then login as the admin.
 
 ---
 
