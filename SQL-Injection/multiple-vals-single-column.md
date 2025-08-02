@@ -18,8 +18,8 @@ Nothing too specific or useful here, I knew that I had to use the filter vulnera
 #### 2. Discovery & Exploitation
 I started with a basic SQL injection payload, into the product category filter, by proxying the response into BurpSuite
 
-*   **Step 1:** In the field I first determined the number of columns `' ORDER BY 2--` or `' UNION SELECT NULL, NULL--`. Since this was not an Oracle DB(it was Postgre), these     queries worked. The second query was modified to `' UNION SELECT NULL, 'wasd'--`, as column 2 only accepted strings.
-*   **Step 2:** Once it was clear that there were 2 columns, I used a query similar to this `' UNION SELECT NULL, username ||'~'|| password FROM users`. The lab specfied
+*   **Step 1:** In the field I first determined the number of columns `' ORDER BY 2--` or `' UNION SELECT NULL, NULL--`.<br> Since this was not an Oracle DB (it was Postgre), these queries worked. The second query was modified to `' UNION SELECT NULL, 'wasd'--`, as column 2 only accepted strings.
+*   **Step 2:** Once it was clear that there were 2 columns, I used a query similar to this<br> `' UNION SELECT NULL, username ||'~'|| password FROM users`<br> The lab specfied
 the names of the columns and the table, so there was no need to dig into the database looking for tables, or dig into the schema of the said table.
 *   **Step 3:** Once I get an OK response (200), I checked the page's HTML for the usernames and passwords concatenated as a single column. Then I used the unencrypted admin login and password on the website.
 
@@ -33,6 +33,6 @@ The application successfully logged me in as the `administrator` user, which was
 
 ### Key Takeaways
 *   This demonstrates a simple logical flaw in query construction which can lead to a full account takeover.
-*   It is necessary to sanitize and validate user input on the server-side, to make sure no input is parsed as a query/command.
+*   It is necessary to sanitize and validate user input on the server side, to make sure no input is parsed as a query/command.
 *   The developer must use parameterized queries through prepared statements to prevent SQL injection vulnerabilities. This is the single most efficient way to prevent almost every simple thoughtless SQL injection attempt
 
