@@ -5,7 +5,7 @@
 ---
 
 ### Objective
-The goal of this lab is to make use of the SQL injection vulnerability present in the Produt Category filter of the website, and use this to inject a query to retrieve all the usernames and passwords into a single column and then login as the admin.
+The goal of this lab is to make use of the SQL injection vulnerability present in the Product Category filter of the website, and use this to inject a query to retrieve all the usernames and passwords into a single column and then login as the admin.
 
 ---
 
@@ -16,7 +16,7 @@ My initial step was to analyze the login functionality. I observed that the appl
 Nothing too specific or useful here, I knew that I had to use the filter vulnerability to enter the details here.
 
 #### 2. Discovery & Exploitation
-I started with a basic SQL injection payload, into the product category filter, by proxying the response into BurpSuite
+I started with a basic SQL injection payload, into the product category filter, by proxying the response into BurpSuite and sending it to the repeater.
 
 *   **Step 1:** In the field I first determined the number of columns `' ORDER BY 2--` or `' UNION SELECT NULL, NULL--`.<br> Since this was not an Oracle DB (it was Postgre), these queries worked. The second query was modified to `' UNION SELECT NULL, 'wasd'--`, as column 2 only accepted strings.
 *   **Step 2:** Once it was clear that there were 2 columns, I used a query similar to this<br> `' UNION SELECT NULL, username ||'~'|| password FROM users`<br> The lab specfied
