@@ -5,7 +5,7 @@
 ---
 
 ### Objective
-The goal of this lab is to make use of the blind SQL injection vulnerability present in the cookie ID of the website, and use this to inject a query to retrieve all the password of the `administrator` and then login.
+The goal of this lab is to make use of the blind SQL injection vulnerability present in the cookie ID of the website, and use this to inject a query to retrieve all the password characters of the `administrator` to login.
 
 ---
 
