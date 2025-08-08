@@ -37,7 +37,7 @@ Finally in the settings tab, under the `Grep-Match` section I added the string `
 This took an enormous amount of time to brute force all 720 combinations, and I'm sure I could have made it way quicker by using a faster method filter on Burp, however I was able to build a password using the characters, sorting by all of the hits on the `TRUE` signal which puts them all at the top of the table, and then sorting by `PAYLOAD 1` which shows the postions.
 I was able to login as admin using the extracted password
 
-![Screenshot of the table](img/brute_force.png)
+
 
 ---
 

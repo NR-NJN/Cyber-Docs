@@ -27,7 +27,7 @@ the names of the columns and the table, so there was no need to dig into the dat
 #### 3. Result
 The application successfully logged me in as the `administrator` user, which was the main task. This confirmed the presence of a critical SQL injection vulnerability.
 
-![Screenshot of the users and passwords with admin](img/admin_pass.png)
+
 
 ---
 
