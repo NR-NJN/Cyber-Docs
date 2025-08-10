@@ -16,25 +16,25 @@ First we have to login as the specified user password. Then upload an arbitrary 
 
 #### 2. Discovery & Exploitation
 
-*   **Step 1:** The file path found on the website is where we can inject the shellcode. This can be done by erasing the image data completely in the POST request on Burp's repeater, and replacing it with the shell php filename and shellcode. In the link/GET request you must change the file path to match the shellcode's filepath. This can be viewed by right click inspecting the image avatar after it has been uploaded and you're prompted to return to the logged in page.
+*   **Step 1:** The file path found on the website is where we can inject the shellcode. This can be done manually by uploading a php script onto the avatar upload button. In the link/GET request you must change the file path to match the shellcode's filepath. This can be viewed by right click inspecting the image avatar after it has been uploaded and you're prompted to return to the logged in page.
 *   **Step 2:**  
 This shellcode may look like this
 ```
 <?php echo file_get_contents('/home/carlos/secret'); ?>
 ```
 
-The first one runs the command directly accessing the required files, while the second one allows the user to dynamically input commands in the website link or the GET request.
+The issue, is that when you upload this php script, it gives you an error telling you to upload jpeg or png files. This is the request you send to the repeater, marked as a `POST` request.
 
 *   **Step 3:** 
-If you inspect the Burp Repeater, then you would have to change the file path in the GET request to the the same file path as the image upload file path with the php filename. First send the POST request which contains the php code, then send the GET request which gives you the contents of the file as part of the original request. 
+Here the `Content-Type` of the file must be changed to `image/jpeg` or png to trick the server into accepting the php shellcode. Send this request and then find the `GET` request from the HTTP history of the proxy. This should now have the contents of the secret file.
+
+
 
 
 #### 3. Result
-Once you get the text, just feed it to the solution tab on the website. This is no different from a regular CTF payload upload
+Once you get the text, just feed it to the solution tab on the website.
 
 
 ---
 
-### Post Script
-The `$_GET` method gave me a similar flag text as the real flag/file content. The `cat /home/carlos/secret` spat out something else which looked very similar to the real answer. However, when I fed the answer to the solution text box, it wasn't accepting it. There were no whitespaces or copying problems. So be cautious while using that method.
 
