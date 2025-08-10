@@ -1,4 +1,4 @@
-# Remote code execution via web shell upload
+# Web shell upload via path traversal
 
 **Vulnerability:** Vulnerability in the upload avatar function of the user account
 
