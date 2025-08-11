@@ -16,7 +16,8 @@ First we have to login as the specified user password. Then upload an arbitrary 
 
 #### 2. Discovery & Exploitation
 
-*   **Step 1:** The file path found on the website is where we can inject the shellcode. This can be done manually by uploading a php script onto the avatar upload button. In the link/GET request you must change the file path to match the shellcode's filepath. This can be viewed by right click inspecting the image avatar after it has been uploaded and you're prompted to return to the logged in page.
+*   **Step 1:** 
+The file path found on the website is where we can inject the shellcode. This can be done manually by uploading a php script onto the avatar upload button. In the link/GET request you must change the file path to match the shellcode's filepath. This can be viewed by right click inspecting the image avatar after it has been uploaded and you're prompted to return to the logged in page.
 *   **Step 2:**  
 This shellcode may look like this
 ```

