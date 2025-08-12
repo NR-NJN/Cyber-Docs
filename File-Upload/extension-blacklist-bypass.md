@@ -12,7 +12,7 @@ The goal of this lab upload shell code that can access the website's filesystem 
 ### Methodology
 
 #### 1. Reconnaissance
-First we have to login as the specified user password. Upload a regular image and return back to your account, track this `GET` request to the repeater and keep it there. If you upload a php script trying to access `/home/carlos/secret`, it says your're not allowed to do this. 
+First we have to login as the specified user password. Upload a regular image and return back to your account, track this `GET` request to the repeater and keep it there. If you upload a php script trying to access `/home/carlos/secret`, it says you're not allowed to do this. 
 
 #### 2. Discovery & Exploitation
 
